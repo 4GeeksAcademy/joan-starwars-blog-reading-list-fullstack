@@ -1,10 +1,13 @@
-import './App.css';
-import HomePage from './pages/HomePage';
+import "./App.css";
+import { Films } from "./pages/Films";
+import { Film } from "./pages/Film";
+import { Routes, Route } from "react-router";
 
-const App  = () => {
+export const App = () => {
   return (
-    <HomePage />
+    <Routes>
+      <Route path="/" element={<Films />} />
+      <Route path="/film/:id" element={<Film />} />
+    </Routes>
   );
-}
-
-export default App;
+};
