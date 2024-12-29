@@ -34,21 +34,21 @@ export const VehiclesLists = () => {
             <h1>Vehicles</h1>
             <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {!isEmpty(vehicles) &&
-                  vehicles.map((vehicles) => {
+                  vehicles.map((vehicle) => {
                     return (
-                        <div key={vehicles._id} style={{ margin: "16px"}}>
-                            <h3>{vehicles.properties.model}</h3>
-                            <NavLink to={`vehicles/${vehicles.uid}`}>
+                        <div key={vehicle._id} style={{ margin: "16px"}}>
+                            <h3>{vehicle.properties.model}</h3>
+                            <NavLink to={`vehicles/${vehicle.uid}`}>
                               <Button>View More</Button>
                             </NavLink>
                             <Button
                               onClick={() => {
-                                isFavorited(vehicles.uid, "vehicles")
-                                  ? deleteFavorite(vehicles.uid, "vehicles")
-                                  : addToFavorites(vehicles.uid, vehicles.properties.model, "vehicles");
+                                isFavorited(vehicle.uid, "vehicles")
+                                  ? deleteFavorite(vehicle.uid, "vehicles")
+                                  : addToFavorites(vehicle.uid, vehicle.properties.model, "vehicles");
                               }}
                             >
-                                {isFavorited(vehicles.uid, "vehicles") ? "UnFav" : "Fav"}
+                                {isFavorited(vehicle.uid, "vehicles") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );
