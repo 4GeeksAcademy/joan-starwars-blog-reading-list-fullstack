@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { NavLink } from "react-router";
 import { FavoritesContext } from "../../context/Favorites";
 
-export const FilmLists = () => {
+export const FilmList = () => {
     const [films, setFilms] = useState([]);
     const { favorites, addToFavorites, deleteFavorite} = useContext(FavoritesContext);
 

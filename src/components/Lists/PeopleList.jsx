@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { NavLink } from "react-router";
 import { FavoritesContext } from "../../context/Favorites";
 
-export const PeopleLists = () => {
+export const PeopleList = () => {
     const [people, setPeople] = useState([]);
     const { favorites, addToFavorites, deleteFavorite} = useContext(FavoritesContext);
 
@@ -36,8 +36,8 @@ export const PeopleLists = () => {
                 {!isEmpty(people) &&
                   people.map((people) => {
                     return (
-                        <div key={people._id} style={{ margin: "16px"}}>
-                            <h3>{people.properties.name}</h3>
+                        <div key={people.name} style={{ margin: "16px"}}>
+                            <h3>{people.name}</h3>
                             <NavLink to={`people/${people.uid}`}>
                               <Button>View More</Button>
                             </NavLink>
@@ -45,10 +45,10 @@ export const PeopleLists = () => {
                               onClick={() => {
                                 isFavorited(people.uid, "people")
                                   ? deleteFavorite(people.uid, "people")
-                                  : addToFavorites(people.uid, people.properties.name, "people");
+                                  : addToFavorites(people.uid, people.name, "people");
                               }}
                             >
-                                {isFavorited(people.uid, "people") ? "UnFav" : "Fav"}
+                                {isFavorited(people?.uid, "people") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );

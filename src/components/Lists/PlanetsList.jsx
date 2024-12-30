@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { NavLink } from "react-router";
 import { FavoritesContext } from "../../context/Favorites";
 
-export const PlanetsLists = () => {
+export const PlanetsList = () => {
     const [planets, setPlanets] = useState([]);
     const { favorites, addToFavorites, deleteFavorite} = useContext(FavoritesContext);
 
@@ -36,19 +36,19 @@ export const PlanetsLists = () => {
                 {!isEmpty(planets) &&
                   planets.map((planets) => {
                     return (
-                        <div key={planets._id} style={{ margin: "16px"}}>
-                            <h3>{planets.properties.name}</h3>
+                        <div key={planets.name} style={{ margin: "16px"}}>
+                            <h3>{planets.name}</h3>
                             <NavLink to={`planets/${planets.uid}`}>
                               <Button>View More</Button>
                             </NavLink>
                             <Button
                               onClick={() => {
-                                isFavorited(planets.uid, "planets")
+                                isFavorited(planets?.uid, "planets")
                                   ? deleteFavorite(planets.uid, "planets")
-                                  : addToFavorites(planets.uid, planets.properties.name, "planets");
+                                  : addToFavorites(planets.uid, planets.name, "planets");
                               }}
                             >
-                                {isFavorited(planets.uid, "planets") ? "UnFav" : "Fav"}
+                                {isFavorited(planets?.uid, "planets") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );

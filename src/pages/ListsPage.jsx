@@ -1,9 +1,14 @@
-import { FilmLists } from "../components/Lists/FilmList";
+import { FilmList } from "../components/Lists/FilmList";
+import { PeopleList } from "../components/Lists/PeopleList";
+import { PlanetsList } from "../components/Lists/PlanetsList";
+
 
 export const ListPage = () => {
     return (
         <>
-          <FilmLists />
+          <FilmList />
+          <PeopleList />
+          <PlanetsList />
         </>
     )
 }
