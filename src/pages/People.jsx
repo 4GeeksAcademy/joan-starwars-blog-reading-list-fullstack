@@ -27,7 +27,7 @@ export const People = () => {
                     width: "100%",
                 }}
             >
-                <h1 className="mb-3 bg-success text-light d-flex align-items-center justify-content-start">
+                <h1 className="mb-3 bg-sucess text-light d-flex align-items-center justify-content-start">
                     People List
                 </h1>
             </Badge>

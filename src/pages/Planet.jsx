@@ -26,22 +26,23 @@ export const Planet = () => {
             {!isEmpty(star) && (
                 <>
                     <Badge
-                        className="py-3 px-3 bg-success border rounded"
+                        className="py-3 px-3 bg-dark border rounded"
                         style={{
                             width: "100%",
                         }}
                     >
-                        <h1 className="mb-3 bg-success text-light d-flex align-items-center justify-content-start">
+                        <h1 className="mb-3 bg-dark text-warning d-flex align-items-center justify-content-start">
                             {star.properties.name}
                         </h1>
                     </Badge>
                     <Container>
-                        <div>Diameter: {star.properties.diameter}</div>
-                        <div>Gravity: {star.properties.gravity}</div>
-                        <div>Climate: {star.properties.climate}</div>
-                        <div>Terrain: {star.properties.terrain}</div>
-                        <div>Population: {star.properties.population}</div>
-
+                        <div><strong>Diameter: </strong>{star.properties.diameter}</div>
+                        <div><strong>Gravity: </strong>{star.properties.gravity}</div>
+                        <div><strong>Orbital period: </strong>{star.properties.orbital_period}</div>
+                        <div><strong>Rotation period: </strong>{star.properties.rotation_period}</div>
+                        <div><strong>Climate: </strong>{star.properties.climate}</div>
+                        <div><strong>Terrain: </strong>{star.properties.terrain}</div>
+                        <div><strong>Population: </strong>{star.properties.population}</div>
                     </Container>
                 </>
             )

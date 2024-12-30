@@ -30,18 +30,18 @@ export const FilmList = () => {
     };
 
     return (
-        < div style={{ border: "solid grey"}} >
+        < div style={{ backgroundColor: "black", color: "#ffc107", border: "solid grey"}} >
             <h1>Films</h1>
             <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {!isEmpty(films) &&
                   films.map((film) => {
                     return (
-                        <div key={film._id} style={{ margin: "16px"}}>
-                            <h3>{film.properties.title}</h3>
+                        <div key={film._id} style={{ color: "white", margin: "16px"}}>
+                            <h3 >{film.properties.title}</h3>
                             <NavLink to={`film/${film.uid}`}>
-                              <Button>View More</Button>
+                              <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button
+                            <Button variant={isFavorited(film.uid, "film") ? "danger" : "warning"}
                               onClick={() => {
                                 isFavorited(film.uid, "film")
                                   ? deleteFavorite(film.uid, "film")

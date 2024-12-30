@@ -30,18 +30,18 @@ export const PeopleList = () => {
     };
 
     return (
-        < div style={{ border: "solid grey"}} >
+        < div style={{ backgroundColor: "black", color: "#ffc107", border: "solid grey"}} >
             <h1>People</h1>
-            <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
+            <div style={{ color: "white", display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {!isEmpty(people) &&
                   people.map((people) => {
                     return (
                         <div key={people.name} style={{ margin: "16px"}}>
                             <h3>{people.name}</h3>
                             <NavLink to={`people/${people.uid}`}>
-                              <Button>View More</Button>
+                              <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button
+                            <Button variant={isFavorited(people.uid, "people") ? "danger" : "warning"}
                               onClick={() => {
                                 isFavorited(people.uid, "people")
                                   ? deleteFavorite(people.uid, "people")

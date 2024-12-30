@@ -26,16 +26,19 @@ export const Film = () => {
             {!isEmpty(movie) && (
                 <>
                 <Badge
-                    className="py-3 px-3 bg-success border rounded"
+                    className="py-3 px-3 bg-dark border rounded"
                     style={{
                         width: "100%",
                     }}
                 >
-                    <h1 className="mb-3 bg-success text-light d-flex align-items-center justify-content-start">
+                    <h1 className="mb-3 bg-dark text-warning d-flex align-items-center justify-content-start">
                         {movie.properties.title}
                     </h1>
                 </Badge>
-            {movie.properties.opening_crawl}
+            <div>{movie.properties.opening_crawl}</div>
+            <div><strong>Episode ID: </strong>{movie.properties.episode_id}</div>
+            <div><strong>Director: </strong>{movie.properties.director}</div>
+            <div><strong>Release date: </strong>{movie.properties.release_date}</div>
             </>
             ) 
          }

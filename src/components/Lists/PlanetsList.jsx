@@ -30,18 +30,18 @@ export const PlanetsList = () => {
     };
 
     return (
-        < div style={{ border: "solid grey"}} >
+        < div style={{ backgroundColor: "black", color: "#ffc107", border: "solid grey"}} >
             <h1>Planets</h1>
-            <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
+            <div style={{ color: "white", display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {!isEmpty(planets) &&
                   planets.map((planets) => {
                     return (
                         <div key={planets.name} style={{ margin: "16px"}}>
                             <h3>{planets.name}</h3>
                             <NavLink to={`planets/${planets.uid}`}>
-                              <Button>View More</Button>
+                              <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button
+                            <Button variant={isFavorited(planets.uid, "planets") ? "danger" : "warning"}
                               onClick={() => {
                                 isFavorited(planets?.uid, "planets")
                                   ? deleteFavorite(planets.uid, "planets")

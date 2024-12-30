@@ -30,22 +30,22 @@ export const VehiclesList = () => {
     };
 
     return (
-        < div style={{ border: "solid grey"}} >
+        < div style={{ backgroundColor: "black", color: "#ffc107", border: "solid grey"}} >
             <h1>Vehicles</h1>
-            <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
+            <div style={{ color: "white", display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {!isEmpty(vehicles) &&
                   vehicles.map((vehicle) => {
                     return (
-                        <div key={vehicle.model} style={{ margin: "16px"}}>
-                            <h3>{vehicle.model}</h3>
+                        <div key={vehicle.name} style={{ margin: "16px"}}>
+                            <h3>{vehicle.name}</h3>
                             <NavLink to={`vehicles/${vehicle.uid}`}>
-                              <Button>View More</Button>
+                              <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button
+                            <Button variant={isFavorited(vehicle.uid, "vehicles") ? "danger" : "warning"}
                               onClick={() => {
                                 isFavorited(vehicle.uid, "vehicles")
                                   ? deleteFavorite(vehicle.uid, "vehicles")
-                                  : addToFavorites(vehicle.uid, vehicle.model, "vehicles");
+                                  : addToFavorites(vehicle.uid, vehicle.name, "vehicles");
                               }}
                             >
                                 {isFavorited(vehicle.uid, "vehicles") ? "UnFav" : "Fav"}
