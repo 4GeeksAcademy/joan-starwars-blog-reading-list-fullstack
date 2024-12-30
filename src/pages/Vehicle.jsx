@@ -26,13 +26,13 @@ export const Vehicle = () => {
             {!isEmpty(carriage) && (
                 <>
                     <Badge
-                        className="py-3 px-3 bg-success border rounded"
+                        className="py-3 px-3 bg-dark border rounded"
                         style={{
                             width: "100%",
                         }}
                     >
-                        <h1 className="mb-3 bg-success text-light d-flex align-items-center justify-content-start">
-                            {carriage.properties.model}
+                        <h1 className="mb-3 bg-dark text-warning d-flex align-items-center justify-content-start">
+                            {carriage.properties.name}
                         </h1>
                     </Badge>
                     <Container>
