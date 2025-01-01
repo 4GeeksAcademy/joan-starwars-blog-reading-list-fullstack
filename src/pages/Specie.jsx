@@ -37,11 +37,11 @@ export const Specie = () => {
                     </Badge>
                     <Container>
                         <div><strong>Classification: </strong>{breed.properties.classification}</div> 
-                        <div><strong>Language: </strong>{breed.properties.language}</div>                        
+                        <div><strong>Language: </strong>{breed.properties.language}</div>             
+                        <div><strong>Average height: </strong>{breed.properties.average_height}</div>           
                         <div><strong>Skin colors: </strong>{breed.properties.skin_colors}</div>
                         <div><strong>Hair colors: </strong>{breed.properties.hair_colors}</div>
                         <div><strong>Eye colors: </strong>{breed.properties.eye_colors}</div>
-                        <div><strong>Average height: </strong>{breed.properties.average_height}</div>
                         <div><strong>Average lifespan: </strong>{breed.properties.average_lifespan}</div>
                     </Container>
                 </>
