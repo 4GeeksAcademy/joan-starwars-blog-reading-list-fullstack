@@ -26,14 +26,14 @@ export const NavBar = () => {
                                     return (
                                         <div key={`${favorite.type}/${favorite.id}`}>
                                             <NavDropdown.Item>
-                                                <NavLink style={{ color: "white" }} to={`${favorite.type}/${favorite.id}`}>
+                                                <NavLink style={{ color: "#ffc107" }} to={`${favorite.type}/${favorite.id}`}>
                                                     {favorite.name}
                                                 </NavLink>
-                                                <Badge
+                                                <Badge bg="danger"
                                                     onClick={() => {
                                                         deleteFavorite(favorite.id, favorite.type);
                                                     }}
-
+                                                    style={{ marginLeft: "5px", color: "#212529"}}
                                                 >X</Badge>
                                             </NavDropdown.Item>
                                         </div>

@@ -22,7 +22,7 @@ export const Planet = () => {
     }, []);
 
     return (
-        <Container className="mt-5">
+        <Container className="mt-2">
             {!isEmpty(star) && (
                 <>
                     <Badge

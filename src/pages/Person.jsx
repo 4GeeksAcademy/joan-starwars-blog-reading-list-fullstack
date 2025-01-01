@@ -22,7 +22,7 @@ export const Person = () => {
     }, []);
 
     return (
-        <Container className="mt-5">
+        <Container className="mt-2">
             {!isEmpty(person) && (
                 <>
                     <Badge
