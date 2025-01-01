@@ -30,8 +30,8 @@ export const VehiclesList = () => {
     };
 
     return (
-        < div style={{ backgroundColor: "black", color: "#ffc107", border: "solid grey"}} >
-            <h1>Vehicles</h1>
+        < div style={{ backgroundColor: "#212529", color: "#ffc107", borderLeft: "3px solid grey", borderRight: "3px solid grey", borderBottom: "3px solid grey"}} >
+            <h1 style={{ paddingLeft: "8px"}}>Vehicles</h1>
             <div style={{ color: "white", display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {!isEmpty(vehicles) &&
                   vehicles.map((vehicle) => {

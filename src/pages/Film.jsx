@@ -38,6 +38,7 @@ export const Film = () => {
             <div>{movie.properties.opening_crawl}</div>
             <div><strong>Episode ID: </strong>{movie.properties.episode_id}</div>
             <div><strong>Director: </strong>{movie.properties.director}</div>
+            <div><strong>Producer: </strong>{movie.properties.producer}</div>
             <div><strong>Release date: </strong>{movie.properties.release_date}</div>
             </>
             ) 

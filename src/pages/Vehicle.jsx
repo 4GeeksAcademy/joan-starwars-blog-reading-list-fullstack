@@ -36,11 +36,13 @@ export const Vehicle = () => {
                         </h1>
                     </Badge>
                     <Container>
-                        <div>Vehicle class: {carriage.properties.vehicle_class}</div>
-                        <div>Manufacturer: {carriage.properties.manufacturer}</div>
-                        <div>Max atmosphering speed: {carriage.properties.max_atmosphering_speed}</div>
-                        <div>Passengers: {carriage.properties.passengers}</div>
-                        <div>Cargo capacity: {carriage.properties.cargo_capacity}</div>                        
+                        <div><strong>Model: </strong>{carriage.properties.model}</div>
+                        <div><strong>Vehicle class: </strong>{carriage.properties.vehicle_class}</div>
+                        <div><strong>Manufacturer: </strong>{carriage.properties.manufacturer}</div>
+                        <div><strong>Max atmosphering speed: </strong>{carriage.properties.max_atmosphering_speed}</div>
+                        <div><strong>Passengers: </strong>{carriage.properties.passengers}</div>
+                        <div><strong>Cargo capacity: </strong>{carriage.properties.cargo_capacity}</div>
+                        <div><strong>Cost in credits: </strong>{carriage.properties.cost_in_credits}</div>                         
                     </Container>
                 </>
             )

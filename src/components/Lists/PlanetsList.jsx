@@ -30,8 +30,8 @@ export const PlanetsList = () => {
     };
 
     return (
-        < div style={{ backgroundColor: "black", color: "#ffc107", border: "solid grey"}} >
-            <h1>Planets</h1>
+        < div style={{ backgroundColor: "#212529", color: "#ffc107", borderLeft: "3px solid grey", borderRight: "3px solid grey", borderBottom: "3px solid grey"}} >
+            <h1 style={{ paddingLeft: "5px"}}>Planets</h1>
             <div style={{ color: "white", display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {!isEmpty(planets) &&
                   planets.map((planets) => {

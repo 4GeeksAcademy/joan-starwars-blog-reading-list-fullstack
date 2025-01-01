@@ -30,8 +30,8 @@ export const FilmList = () => {
     };
 
     return (
-        < div style={{ backgroundColor: "black", color: "#ffc107", border: "solid grey"}} >
-            <h1>Films</h1>
+        < div style={{ backgroundColor: "#212529", color: "#ffc107", border: "solid grey"}} >
+            <h1 style={{ paddingLeft: "5px"}}>Films</h1>
             <div style={{ display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {!isEmpty(films) &&
                   films.map((film) => {

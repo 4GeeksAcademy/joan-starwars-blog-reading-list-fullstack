@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FavoritesContext } from "../context/Favorites";
 import { isEmpty } from "lodash";
 import { NavLink } from "react-router";
-import { Badge, Container, Nav, Navbar, NavDropdown } from 'react-bootstrap';
+import { Badge, Container, Nav, Navbar, NavDropdown, Button } from 'react-bootstrap';
 import { useNavigate } from "react-router";
 
 
@@ -14,7 +14,9 @@ export const NavBar = () => {
     return (
         <Navbar sticky="top" bg="dark" data-bs-theme="dark" text="warning" expand="lg">
             <Container>
-                <Navbar.Brand style={{ color: "#ffc107" }} onClick={() => navigate("/")}>Starwars Blog Reading List</Navbar.Brand>
+                <Navbar.Brand onClick={() => navigate("/")}>
+                    <Button variant="black" style={{ color: "#ffc107", fontSize: "1.5rem" }}>Starwars Blog Reading List</Button>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ms-auto">
