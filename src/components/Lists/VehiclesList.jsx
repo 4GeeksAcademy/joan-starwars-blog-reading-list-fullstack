@@ -31,7 +31,7 @@ export const VehiclesList = () => {
 
     return (
         < div style={{ backgroundColor: "#212529", color: "#ffc107", borderLeft: "3px solid grey", borderRight: "3px solid grey", borderBottom: "3px solid grey"}} >
-            <h1 style={{ paddingLeft: "8px"}}>Vehicles</h1>
+            <h1 style={{ paddingLeft: "7px"}}>Vehicles</h1>
             <div style={{ color: "white", display: "flex", flexDirection: "row", flexWrap: "wrap"}}>
                 {!isEmpty(vehicles) &&
                   vehicles.map((vehicle) => {
