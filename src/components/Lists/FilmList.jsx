@@ -7,7 +7,7 @@ import { FavoritesContext } from "../../context/Favorites";
 
 export const FilmList = () => {
     const [films, setFilms] = useState([]);
-    const { favorites, addToFavorites, deleteFavorite} = useContext(FavoritesContext);
+    const { favorites, addFavorite, deleteFavorite} = useContext(FavoritesContext);
 
     const getFilmsList = () => {
         fetch(`https://www.swapi.tech/api/films`, {
@@ -23,7 +23,7 @@ export const FilmList = () => {
         getFilmsList();
     }, []);
 
-    const isFavorited = (id, type) => {
+    const itsFavorite = (id, type) => {
         return favorites.some((favorite) => {
             return favorite.id === id && favorite.type === type;
         });
@@ -41,14 +41,14 @@ export const FilmList = () => {
                             <NavLink to={`film/${film.uid}`}>
                               <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button variant={isFavorited(film.uid, "film") ? "danger" : "warning"}
+                            <Button variant={itsFavorite(film.uid, "film") ? "danger" : "warning"}
                               onClick={() => {
-                                isFavorited(film.uid, "film")
+                                itsFavorite(film.uid, "film")
                                   ? deleteFavorite(film.uid, "film")
-                                  : addToFavorites(film.uid, film.properties.title, "film");
+                                  : addFavorite(film.uid, film.properties.title, "film");
                               }}
                             >
-                                {isFavorited(film.uid, "film") ? "UnFav" : "Fav"}
+                                {itsFavorite(film.uid, "film") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );

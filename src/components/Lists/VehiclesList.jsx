@@ -7,7 +7,7 @@ import { FavoritesContext } from "../../context/Favorites";
 
 export const VehiclesList = () => {
     const [vehicles, setVehicles] = useState([]);
-    const { favorites, addToFavorites, deleteFavorite} = useContext(FavoritesContext);
+    const { favorites, addFavorite, deleteFavorite} = useContext(FavoritesContext);
 
     const getVehiclesList = () => {
         fetch(`https://www.swapi.tech/api/vehicles`, {
@@ -23,7 +23,7 @@ export const VehiclesList = () => {
         getVehiclesList();
     }, []);
 
-    const isFavorited = (id, type) => {
+    const itsFavorite = (id, type) => {
         return favorites.some((favorite) => {
             return favorite.id === id && favorite.type === type;
         });
@@ -41,14 +41,14 @@ export const VehiclesList = () => {
                             <NavLink to={`vehicles/${vehicle.uid}`}>
                               <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button variant={isFavorited(vehicle.uid, "vehicles") ? "danger" : "warning"}
+                            <Button variant={itsFavorite(vehicle.uid, "vehicles") ? "danger" : "warning"}
                               onClick={() => {
-                                isFavorited(vehicle.uid, "vehicles")
+                                itsFavorite(vehicle.uid, "vehicles")
                                   ? deleteFavorite(vehicle.uid, "vehicles")
-                                  : addToFavorites(vehicle.uid, vehicle.name, "vehicles");
+                                  : addFavorite(vehicle.uid, vehicle.name, "vehicles");
                               }}
                             >
-                                {isFavorited(vehicle.uid, "vehicles") ? "UnFav" : "Fav"}
+                                {itsFavorite(vehicle.uid, "vehicles") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );

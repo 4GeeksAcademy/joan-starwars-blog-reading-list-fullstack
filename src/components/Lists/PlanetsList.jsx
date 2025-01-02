@@ -7,7 +7,7 @@ import { FavoritesContext } from "../../context/Favorites";
 
 export const PlanetsList = () => {
     const [planets, setPlanets] = useState([]);
-    const { favorites, addToFavorites, deleteFavorite} = useContext(FavoritesContext);
+    const { favorites, addFavorite, deleteFavorite} = useContext(FavoritesContext);
 
     const getPlanetsList = () => {
         fetch(`https://www.swapi.tech/api/planets`, {
@@ -23,7 +23,7 @@ export const PlanetsList = () => {
         getPlanetsList();
     }, []);
 
-    const isFavorited = (id, type) => {
+    const itsFavorite = (id, type) => {
         return favorites.some((favorite) => {
             return favorite.id === id && favorite.type === type;
         });
@@ -41,14 +41,14 @@ export const PlanetsList = () => {
                             <NavLink to={`planets/${planets.uid}`}>
                               <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button variant={isFavorited(planets.uid, "planets") ? "danger" : "warning"}
+                            <Button variant={itsFavorite(planets.uid, "planets") ? "danger" : "warning"}
                               onClick={() => {
-                                isFavorited(planets?.uid, "planets")
+                                itsFavorite(planets?.uid, "planets")
                                   ? deleteFavorite(planets.uid, "planets")
-                                  : addToFavorites(planets.uid, planets.name, "planets");
+                                  : addFavorite(planets.uid, planets.name, "planets");
                               }}
                             >
-                                {isFavorited(planets?.uid, "planets") ? "UnFav" : "Fav"}
+                                {itsFavorite(planets?.uid, "planets") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );

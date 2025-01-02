@@ -7,7 +7,7 @@ import { FavoritesContext } from "../../context/Favorites";
 
 export const PeopleList = () => {
     const [people, setPeople] = useState([]);
-    const { favorites, addToFavorites, deleteFavorite} = useContext(FavoritesContext);
+    const { favorites, addFavorite, deleteFavorite} = useContext(FavoritesContext);
 
     const getPeopleList = () => {
         fetch(`https://www.swapi.tech/api/people`, {
@@ -23,7 +23,7 @@ export const PeopleList = () => {
         getPeopleList();
     }, []);
 
-    const isFavorited = (id, type) => {
+    const itsFavorite = (id, type) => {
         return favorites.some((favorite) => {
             return favorite.id === id && favorite.type === type;
         });
@@ -41,14 +41,14 @@ export const PeopleList = () => {
                             <NavLink to={`people/${people.uid}`}>
                               <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button variant={isFavorited(people.uid, "people") ? "danger" : "warning"}
+                            <Button variant={itsFavorite(people.uid, "people") ? "danger" : "warning"}
                               onClick={() => {
-                                isFavorited(people.uid, "people")
+                                itsFavorite(people.uid, "people")
                                   ? deleteFavorite(people.uid, "people")
-                                  : addToFavorites(people.uid, people.name, "people");
+                                  : addFavorite(people.uid, people.name, "people");
                               }}
                             >
-                                {isFavorited(people?.uid, "people") ? "UnFav" : "Fav"}
+                                {itsFavorite(people?.uid, "people") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );
