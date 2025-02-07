@@ -10,12 +10,12 @@ export const PeopleList = () => {
     const { favorites, addFavorite, deleteFavorite} = useContext(FavoritesContext);
 
     const getPeopleList = () => {
-        fetch(`https://www.swapi.tech/api/people`, {
+        fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/people`, {
             method: "GET",
         })
             .then((res) => res.json())
             .then((response) => {
-                setPeople(response.results);
+                setPeople(response.content);
             });
     };
 
@@ -24,7 +24,7 @@ export const PeopleList = () => {
     }, []);
 
     const itsFavorite = (id, type) => {
-        return favorites.some((favorite) => {
+        return !isEmpty(favorites) && favorites.some((favorite) => {
             return favorite.id === id && favorite.type === type;
         });
     };

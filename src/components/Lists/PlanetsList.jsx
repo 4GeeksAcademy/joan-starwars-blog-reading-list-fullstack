@@ -10,12 +10,12 @@ export const PlanetsList = () => {
     const { favorites, addFavorite, deleteFavorite} = useContext(FavoritesContext);
 
     const getPlanetsList = () => {
-        fetch(`https://www.swapi.tech/api/planets`, {
+        fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/planets`, {
             method: "GET",
         })
             .then((res) => res.json())
             .then((response) => {
-                setPlanets(response.results);
+                setPlanets(response.content);
             });
     };
 
@@ -24,7 +24,7 @@ export const PlanetsList = () => {
     }, []);
 
     const itsFavorite = (id, type) => {
-        return favorites.some((favorite) => {
+        return !isEmpty(favorites) && favorites.some((favorite) => {
             return favorite.id === id && favorite.type === type;
         });
     };

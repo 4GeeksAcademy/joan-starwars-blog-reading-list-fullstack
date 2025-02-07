@@ -10,12 +10,12 @@ export const FilmList = () => {
     const { favorites, addFavorite, deleteFavorite} = useContext(FavoritesContext);
 
     const getFilmsList = () => {
-        fetch(`https://www.swapi.tech/api/films`, {
+        fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/films`, {
             method: "GET",
         })
             .then((res) => res.json())
             .then((response) => {
-                setFilms(response.result);
+                setFilms(response.content);
             });
     };
 
@@ -24,7 +24,7 @@ export const FilmList = () => {
     }, []);
 
     const itsFavorite = (id, type) => {
-        return favorites.some((favorite) => {
+        return !isEmpty(favorites) && favorites.some((favorite) => {
             return favorite.id === id && favorite.type === type;
         });
     };
@@ -36,8 +36,8 @@ export const FilmList = () => {
                 {!isEmpty(films) &&
                   films.map((film) => {
                     return (
-                        <div key={film._id} style={{ color: "white", margin: "16px"}}>
-                            <h3 >{film.properties.title}</h3>
+                        <div key={film.ID} style={{ color: "white", margin: "16px"}}>
+                            <h3 >{film.title}</h3>
                             <NavLink to={`film/${film.uid}`}>
                               <Button variant="warning">View More</Button>
                             </NavLink>
@@ -45,7 +45,7 @@ export const FilmList = () => {
                               onClick={() => {
                                 itsFavorite(film.uid, "film")
                                   ? deleteFavorite(film.uid, "film")
-                                  : addFavorite(film.uid, film.properties.title, "film");
+                                  : addFavorite(film.uid, film.title, "film");
                               }}
                             >
                                 {itsFavorite(film.uid, "film") ? "UnFav" : "Fav"}
