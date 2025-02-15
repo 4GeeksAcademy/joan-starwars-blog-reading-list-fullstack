@@ -43,9 +43,9 @@ export const PlanetsList = () => {
                             </NavLink>
                             <Button variant={itsFavorite(planets.ID, "Planet") ? "danger" : "warning"}
                               onClick={() => {
-                                itsFavorite(planets?.external_ID, "Planet")
-                                  ? deleteFavorite(planets.external_ID, "Planet")
-                                  : addFavorite(planets.external_ID, planets.name, "Planet");
+                                itsFavorite(planets?.ID, "Planet")
+                                  ? deleteFavorite(planets.ID, "Planet")
+                                  : addFavorite(planets.ID, planets.name, "Planet");
                               }}
                             >
                                 {itsFavorite(planets?.ID, "Planet") ? "UnFav" : "Fav"}

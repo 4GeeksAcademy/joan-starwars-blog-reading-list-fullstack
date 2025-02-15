@@ -2,9 +2,9 @@ import { createContext, useState, useEffect } from "react";
 
 export const FavoritesContext = createContext({
     favorites: [],
-    setFavorites: () => {},
-    deleteFavorite: () => {},
-    addFavorite: () => {},
+    setFavorites: (id, name, type) => {},
+    deleteFavorite: (id) => {},
+    addFavorite: (id, name, type) => {},
 });
 
 export const FavoritesProvider = ({ children }) => {
@@ -14,6 +14,15 @@ export const FavoritesProvider = ({ children }) => {
         fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/favorites`)
             .then((res) => res.json())
             .then(data => setFavorites(data))
+    };
+
+    const deleteFavorite = (id) => {
+        fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/favorites/${id}`, {
+            method: "DELETE",
+            headers: { "content-Type": "application/json" },
+            }).then(() => {
+                return getFavoritesList();
+            });
     };
 
     const addFavorite = (id, name, type) => {
@@ -29,15 +38,6 @@ export const FavoritesProvider = ({ children }) => {
             .then(() => {
                 return getFavoritesList();
             })
-    };
-
-    const deleteFavorite = (id) => {
-        fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/favorites/${id}`, {
-            method: "DELETE",
-            headers: { "content-Type": "application/json" },
-            }).then(() => {
-                return getFavoritesList();
-            });
     };
 
     useEffect(() => {
