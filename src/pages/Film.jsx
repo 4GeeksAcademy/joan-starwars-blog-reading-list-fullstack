@@ -8,12 +8,12 @@ export const Film = () => {
     let { id } = useParams();
 
     const getMovie = (id) => {
-        fetch(`https://www.swapi.tech/api/films/${id}`, {
+        fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/films/${id}`, {
             method: "GET",
         })
             .then((res) => res.json())
             .then((response) => {
-                setMovie(response.result);
+                setMovie(response.content);
             });
     };
 
@@ -32,14 +32,13 @@ export const Film = () => {
                     }}
                 >
                     <h1 className="mb-3 bg-dark text-warning d-flex align-items-center justify-content-start">
-                        {movie.properties.title}
+                        {movie.title}
                     </h1>
                 </Badge>
-            <div>{movie.properties.opening_crawl}</div>
-            <div><strong>Episode ID: </strong>{movie.properties.episode_id}</div>
-            <div><strong>Director: </strong>{movie.properties.director}</div>
-            <div><strong>Producer: </strong>{movie.properties.producer}</div>
-            <div><strong>Release date: </strong>{movie.properties.release_date}</div>
+            <div><strong>Episode ID: </strong>{movie.episode_id}</div>
+            <div><strong>Director: </strong>{movie.director}</div>
+            <div><strong>Producer: </strong>{movie.producer}</div>
+            <div><strong>Release date: </strong>{movie.release_date}</div>
             </>
             ) 
          }
