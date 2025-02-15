@@ -8,12 +8,12 @@ export const Planet = () => {
     let { id } = useParams();
 
     const getStar = (id) => {
-        fetch(`https://www.swapi.tech/api/planets/${id}`, {
+        fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/planets/${id}`, {
             method: "GET",
         })
             .then((res) => res.json())
             .then((response) => {
-                setStar(response.result);
+                setStar(response.content);
             });
     };
 
@@ -32,17 +32,14 @@ export const Planet = () => {
                         }}
                     >
                         <h1 className="mb-3 bg-dark text-warning d-flex align-items-center justify-content-start">
-                            {star.properties.name}
+                            {star.name}
                         </h1>
                     </Badge>
                     <Container>
-                        <div><strong>Diameter: </strong>{star.properties.diameter}</div>
-                        <div><strong>Gravity: </strong>{star.properties.gravity}</div>
-                        <div><strong>Orbital period: </strong>{star.properties.orbital_period}</div>
-                        <div><strong>Rotation period: </strong>{star.properties.rotation_period}</div>
-                        <div><strong>Climate: </strong>{star.properties.climate}</div>
-                        <div><strong>Terrain: </strong>{star.properties.terrain}</div>
-                        <div><strong>Population: </strong>{star.properties.population}</div>
+                        <div><strong>Diameter: </strong>{star.diameter}</div>
+                        <div><strong>Gravity: </strong>{star.gravity}</div>
+                        <div><strong>Climate: </strong>{star.climate}</div>
+                        <div><strong>Population: </strong>{star.population}</div>
                     </Container>
                 </>
             )

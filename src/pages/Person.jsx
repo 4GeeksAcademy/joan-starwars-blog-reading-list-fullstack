@@ -8,12 +8,12 @@ export const Person = () => {
     let { uid } = useParams();
 
     const getPerson = (uid) => {
-        fetch(`https://www.swapi.tech/api/people/${uid}`, {
+        fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/people/${uid}`, {
             method: "GET",
         })
             .then((res) => res.json())
             .then((response) => {
-                setPerson(response.result);
+                setPerson(response.content);
             });
     };
 
@@ -32,17 +32,14 @@ export const Person = () => {
                         }}
                     >
                         <h1 className="mb-3 bg-dark text-warning d-flex align-items-center justify-content-start">
-                            {person.properties.name}
+                            {person.name}
                         </h1>
                     </Badge>
                     <Container>
-                        <div><strong>Gender: </strong>{person.properties.gender}</div> 
-                        <div><strong>Height: </strong>{person.properties.height}</div>
-                        <div><strong>Mass: </strong>{person.properties.mass}</div>
-                        <div><strong>Skin color: </strong>{person.properties.skin_color}</div>
-                        <div><strong>Hair color: </strong>{person.properties.hair_color}</div>
-                        <div><strong>Eye color: </strong>{person.properties.eye_color}</div>
-                        <div><strong>Birth year: </strong>{person.properties.birth_year}</div>
+                        <div><strong>Species: </strong>{person.species}</div>
+                        <div><strong>Height: </strong>{person.height}</div>
+                        <div><strong>Skin color: </strong>{person.skin_color}</div>
+                        <div><strong>Hair color: </strong>{person.hair_color}</div>
                     </Container>
                 </>
             )

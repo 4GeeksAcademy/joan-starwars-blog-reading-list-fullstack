@@ -38,7 +38,7 @@ export const FilmList = () => {
                     return (
                         <div key={film.ID} style={{ color: "white", margin: "16px"}}>
                             <h3 >{film.title}</h3>
-                            <NavLink to={`films/${film.ID}`}>
+                            <NavLink to={`film/${film.ID}`}>
                               <Button variant="warning">View More</Button>
                             </NavLink>
                             <Button variant={itsFavorite(film.ID, "film") ? "danger" : "warning"}
