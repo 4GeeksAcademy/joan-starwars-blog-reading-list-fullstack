@@ -12,9 +12,9 @@ export const App = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<ListPage />} />
-        <Route path="/film/:id" element={<Film />} />
-        <Route path="/people/:uid" element={<Person />} />
-        <Route path="/planets/:id" element={<Planet />} />
+        <Route path="/Films/:id" element={<Film />} />
+        <Route path="/People/:uid" element={<Person />} />
+        <Route path="/Planet/:id" element={<Planet />} />
       </Routes>
     </>
   );

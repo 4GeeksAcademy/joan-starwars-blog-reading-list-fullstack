@@ -38,17 +38,17 @@ export const PlanetsList = () => {
                     return (
                         <div key={planets.name} style={{ margin: "16px"}}>
                             <h3>{planets.name}</h3>
-                            <NavLink to={`planets/${planets.ID}`}>
+                            <NavLink to={`Planet/${planets.ID}`}>
                               <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button variant={itsFavorite(planets.ID, "planets") ? "danger" : "warning"}
+                            <Button variant={itsFavorite(planets.ID, "Planet") ? "danger" : "warning"}
                               onClick={() => {
-                                itsFavorite(planets?.ID, "planets")
-                                  ? deleteFavorite(planets.ID, "planets")
-                                  : addFavorite(planets.ID, planets.name, "planets");
+                                itsFavorite(planets?.external_ID, "Planet")
+                                  ? deleteFavorite(planets.external_ID, "Planet")
+                                  : addFavorite(planets.external_ID, planets.name, "Planet");
                               }}
                             >
-                                {itsFavorite(planets?.ID, "planets") ? "UnFav" : "Fav"}
+                                {itsFavorite(planets?.ID, "Planet") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );

@@ -38,17 +38,17 @@ export const FilmList = () => {
                     return (
                         <div key={film.ID} style={{ color: "white", margin: "16px"}}>
                             <h3 >{film.title}</h3>
-                            <NavLink to={`film/${film.ID}`}>
+                            <NavLink to={`Films/${film.ID}`}>
                               <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button variant={itsFavorite(film.ID, "film") ? "danger" : "warning"}
+                            <Button variant={itsFavorite(film.ID, "Films") ? "danger" : "warning"}
                               onClick={() => {
-                                itsFavorite(film.ID, "film")
-                                  ? deleteFavorite(film.ID, "film")
-                                  : addFavorite(film.ID, film.title, "film");
+                                itsFavorite(film.ID, "Films")
+                                  ? deleteFavorite(film.ID, "Films")
+                                  : addFavorite(film.ID, film.title, "Films");
                               }}
                             >
-                                {itsFavorite(film.ID, "film") ? "UnFav" : "Fav"}
+                                {itsFavorite(film.ID, "Films") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );

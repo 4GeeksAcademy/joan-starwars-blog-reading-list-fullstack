@@ -24,14 +24,14 @@ export const NavBar = () => {
                             <NavDropdown title="Favorites" id="basic-nav-dropdown">
                                 {favorites.map((favorite) => {
                                     return (
-                                        <div key={`${favorite.type}/${favorite.id}`}>
+                                        <div key={`${favorite.type}/${favorite.ID}`}>
                                             <NavDropdown.Item>
-                                                <NavLink style={{ color: "#ffc107" }} to={`${favorite.type}/${favorite.id}`}>
+                                                <NavLink style={{ color: "#ffc107" }} to={`${favorite.type}/${favorite.external_ID}`}>
                                                     {favorite.name}
                                                 </NavLink>
                                                 <Badge bg="danger"
                                                     onClick={() => {
-                                                        deleteFavorite(favorite.id, favorite.type);
+                                                        deleteFavorite(favorite.ID, favorite.type);
                                                     }}
                                                     style={{ marginLeft: "5px", color: "#212529"}}
                                                 >X</Badge>

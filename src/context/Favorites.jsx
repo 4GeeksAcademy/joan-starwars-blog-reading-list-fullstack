@@ -31,19 +31,14 @@ export const FavoritesProvider = ({ children }) => {
             })
     };
 
-    const deleteFavorite = (id, type) => {
-        fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/favorites`, {
+    const deleteFavorite = (id) => {
+        fetch(`https://potential-winner-595qpgw6j743p69x-3000.app.github.dev/favorites/${id}`, {
             method: "DELETE",
+            headers: { "content-Type": "application/json" },
             }).then(() => {
-                getFavoritesList();
+                return getFavoritesList();
             });
     };
-
-
-
-
-
-
 
     useEffect(() => {
         getFavoritesList();

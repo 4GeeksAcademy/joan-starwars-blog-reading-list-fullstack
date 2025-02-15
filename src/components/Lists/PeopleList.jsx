@@ -38,17 +38,17 @@ export const PeopleList = () => {
                     return (
                         <div key={people.name} style={{ margin: "16px"}}>
                             <h3>{people.name}</h3>
-                            <NavLink to={`people/${people.ID}`}>
+                            <NavLink to={`People/${people.ID}`}>
                               <Button variant="warning">View More</Button>
                             </NavLink>
-                            <Button variant={itsFavorite(people.ID, "people") ? "danger" : "warning"}
+                            <Button variant={itsFavorite(people.ID, "People") ? "danger" : "warning"}
                               onClick={() => {
-                                itsFavorite(people.ID, "people")
-                                  ? deleteFavorite(people.ID, "people")
-                                  : addFavorite(people.ID, people.name, "people");
+                                itsFavorite(people.ID, "People")
+                                  ? deleteFavorite(people.ID, "People")
+                                  : addFavorite(people.ID, people.name, "People");
                               }}
                             >
-                                {itsFavorite(people?.ID, "people") ? "UnFav" : "Fav"}
+                                {itsFavorite(people?.ID, "People") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );
