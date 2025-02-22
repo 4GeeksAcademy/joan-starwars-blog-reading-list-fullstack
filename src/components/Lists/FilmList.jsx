@@ -24,9 +24,14 @@ export const FilmList = () => {
     }, []);
 
     const itsFavorite = (id, type) => {
-        return !isEmpty(favorites) && favorites.some((favorite) => {
-            return favorite.id === id && favorite.type === type;
+        return favorites.some((favorite) => {
+            return favorite.external_ID === id && favorite.type === type;
         });
+    };
+
+    const mapFavorite = (id, type) => {
+        const favorite = favorites.find(obj => obj.external_ID === id && obj.type === type) || null;
+        return favorite.ID;
     };
 
     return (
@@ -44,7 +49,7 @@ export const FilmList = () => {
                             <Button variant={itsFavorite(film.ID, "Films") ? "danger" : "warning"}
                               onClick={() => {
                                 itsFavorite(film.ID, "Films")
-                                  ? deleteFavorite(film.ID, "Films")
+                                  ? deleteFavorite(mapFavorite(film.ID, "Films"), "Films")
                                   : addFavorite(film.ID, film.title, "Films");
                               }}
                             >

@@ -25,8 +25,13 @@ export const PeopleList = () => {
 
     const itsFavorite = (id, type) => {
         return !isEmpty(favorites) && favorites.some((favorite) => {
-            return favorite.id === id && favorite.type === type;
+            return favorite.external_ID === id && favorite.type === type;
         });
+    };
+
+    const mapFavorite = (id, type) => {
+        const favorite = favorites.find(obj => obj.external_ID === id && obj.type === type) || null;
+        return favorite.ID;
     };
 
     return (
@@ -44,7 +49,7 @@ export const PeopleList = () => {
                             <Button variant={itsFavorite(people.ID, "People") ? "danger" : "warning"}
                               onClick={() => {
                                 itsFavorite(people.ID, "People")
-                                  ? deleteFavorite(people.ID, "People")
+                                  ? deleteFavorite(mapFavorite(people.ID, "People"), "People")
                                   : addFavorite(people.ID, people.name, "People");
                               }}
                             >

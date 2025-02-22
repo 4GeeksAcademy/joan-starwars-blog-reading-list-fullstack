@@ -25,8 +25,13 @@ export const PlanetsList = () => {
 
     const itsFavorite = (id, type) => {
         return !isEmpty(favorites) && favorites.some((favorite) => {
-            return favorite.id === id && favorite.type === type;
+            return favorite.external_ID === id && favorite.type === type;
         });
+    };
+
+    const mapFavorite = (id, type) => {
+        const favorite = favorites.find(obj => obj.external_ID === id && obj.type === type) || null;
+        return favorite.ID;
     };
 
     return (
@@ -43,12 +48,12 @@ export const PlanetsList = () => {
                             </NavLink>
                             <Button variant={itsFavorite(planets.ID, "Planet") ? "danger" : "warning"}
                               onClick={() => {
-                                itsFavorite(planets?.ID, "Planet")
-                                  ? deleteFavorite(planets.ID, "Planet")
+                                itsFavorite(planets.ID, "Planet")
+                                  ? deleteFavorite(mapFavorite(planets.ID, "Planet"), "Planet")
                                   : addFavorite(planets.ID, planets.name, "Planet");
                               }}
                             >
-                                {itsFavorite(planets?.ID, "Planet") ? "UnFav" : "Fav"}
+                                {itsFavorite(planets.ID, "Planet") ? "UnFav" : "Fav"}
                             </Button>
                         </div>
                     );
